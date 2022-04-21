@@ -1,0 +1,1212 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- Head -->
+<head> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+	<meta name="author" content="BMKG Kalbar" /> 
+	<meta name="description" content="BMKG Provinsi Kalimantan Barat"> 
+	<meta name="keyword" content="cuaca, suhu, kelembaban, angin, tekanan udara, hujan, kilat, petir, puting beliung, hujan es, angin kencang">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="BMKG | Provinsi Kalimantan Barat">
+	<meta property="og:image" content="https://www.bmkg.go.id/asset/img/logo/bg_BMKG2.jpg">
+	<meta property="og:description" content="Informasi prakiraan cuaca, maritim dan penerbangan untuk wilayah Kalimantan Barat dengan Cepat, Tepat, Akurat, Luas, dan Mudah Dipahami">
+	<meta property="og:url" content="https://kalbar.bmkg.go.id">
+	 <!-- Favicon -->
+	<link rel="shortcut icon" href="https://kalbar.bmkg.go.id/images/favicon.ico">
+	<!-- Document title --> 
+	<title>Prakiraan Cuaca Kota/Kabupaten - BMKG Provinsi Kalimantan Barat</title> 
+	<!-- Stylesheets & Fonts --> 
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css" />  
+	<link href="https://kalbar.bmkg.go.id/css/plugins.css" rel="stylesheet"> 
+	<link href="https://kalbar.bmkg.go.id/css/style.css" rel="stylesheet"> 
+	<link href="https://kalbar.bmkg.go.id/css/responsive.css" rel="stylesheet"> 
+	<link href="https://kalbar.bmkg.go.id/css/custom.css" rel="stylesheet"> 
+		
+	<link href="https://kalbar.bmkg.go.id/css/thrustfault.css" rel="stylesheet">	
+	<link href="https://kalbar.bmkg.go.id/css/thunderstorm.css" rel="stylesheet">
+	<link href="https://kalbar.bmkg.go.id/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://kalbar.bmkg.go.id/css/weather-icons.css" rel="stylesheet">
+	<link href="https://kalbar.bmkg.go.id/css/weather-icons.min.css" rel="stylesheet">
+	<link href="https://kalbar.bmkg.go.id/css/weather-icons.wind.css" rel="stylesheet">
+	<link href="https://kalbar.bmkg.go.id/css/weather-icons.wind.min.css" rel="stylesheet">
+<script type="text/javascript">        
+	function tampilkanwaktu(){         //fungsi ini akan dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik    
+    var waktu = new Date();            //membuat object date berdasarkan waktu saat 
+    var sh = waktu.getHours() + "";    //memunculkan nilai jam, //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length    //ambil nilai menit
+    var sm = waktu.getMinutes() + "";  //memunculkan nilai detik    
+    var ss = waktu.getSeconds() + "";  //memunculkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+    document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss) + "  WIB";
+    }
+
+
+
+
+</script>
+<?
+//notifikasi ?>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "d409cc15-2dc4-4a11-938e-1e20a56c2fb3",
+    });
+  });
+</script>
+	<!-- Template color -->
+    <link href="https://kalbar.bmkg.go.id/css/color-variations/blue-dark.css" rel="stylesheet" type="text/css" media="screen">
+	
+
+
+
+
+</head><!--TEMPATKAN SCRIPT TAMBAHAN HEAD DISINI-->
+	<link href="/css/thrustfault.css" rel="stylesheet">	
+	<link href="/css/thunderstorm.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!--AKHIR SCRIPT TAMBAHAN HEAD DISINI-->
+<title>Prakiraan Cuaca Kota/Kabupaten</title>
+<!-- end: Head -->
+</head>
+<!-- Body -->
+<body onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+			
+		<!-- Topbar -->
+		<div id="topbar" class="dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+						<ul class="top-menu">
+							<li><a>
+							SELASA, 12 APRIL 2022							</a></li>
+						</ul>
+						
+					</div>
+					<div class="col-sm-4 ">
+						<div class="FontDigit">
+							<ul class="top-menu">
+							<li><a href="https://time.bmkg.go.id/Jam.BMKG" target="_blank">STANDAR WAKTU INDONESIA</a></li>
+							<li><span class="FontDigit" id="clock"></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				<!-- end: Topbar -->	
+			
+        <!-- Header -->
+				
+<!--
+<div id="modalText" class="modal modal-auto-open text-center" data-delay="3000">
+                                <h2>Sample Text Modal</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.</p>
+                                <a class="btn btn-xs modal-close" href="#">Dismiss</a>
+                            </div>
+-->
+<header id="header">
+    <div id="header-wrap">
+                <div class="container"> <!--Logo-->
+                     <!--
+					<div id="logo">
+                        <a href="https://kalbar.bmkg.go.id" class="logo" data-dark-logo="https://kalbar.bmkg.go.id/images/logo-bmkg-kalbar3.gif"> 
+						<img src="https://kalbar.bmkg.go.id/images/logo-bmkg-kalbar3.gif" alt=" logo bmkg kalbar"> </a>
+                    </div>
+					-->
+					<div id="logo">
+                        <a href="http://kalbar.bmkg.go.id/" class="logo" data-dark-logo="images/logo-dark.png"> <img  style = "width:410px; height:100%" src="http://kalbar.bmkg.go.id/images/header/supadio_2.svg" alt="Stasiun Meteorologi Supadio Pontianak"> </a>
+                    </div>
+                    <!--End: Logo-->
+
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger">
+                        <button class="lines-button x"> <span class="lines"></span> </button>
+                    </div>
+                    <!--end: Navigation Resposnive Trigger--> 
+					<!--Navigation-->
+                    <div id="mainMenu">
+                        <div class="container">
+                            <nav>
+                                <ul>
+									<li class="dropdown mega-menu-item"> <a href="#">Profil</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="mega-menu-content">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Profil</li>
+															<li> <a href="https://kalbar.bmkg.go.id/profil/">Profil UPT Kalimantan Barat</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/visi-dan-misi/">Visi dan Misi</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/struktur-organisasi/">Struktur Organisasi</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/pejabat-bmkg-kalbar/">Pejabat BMKG Kalbar</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/logo-bmkg/">Logo BMKG</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/sdm/">Sumber Daya Manusia</a> </li>
+														</ul>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Unit Pelaksana Teknis</li>
+															<li> <a href="#">Stasiun Meteorologi Kelas I Supadio - Pontianak</a> </li>
+															<li> <a href="https://iklim.kalbar.bmkg.go.id" target="_blank">Stasiun Klimatologi Kelas II Mempawah</a> </li>
+															<li> <a href="https://stamet.sintang.bmkg.go.id/" target="_blank">Stasiun Meteorologi Kelas III Tebelian - Sintang</a></li>
+                                                            <li> <a href="#">Stasiun Meteorologi Kelas III Rahadi Oesman - Ketapang</a> </li>
+                                                            <li> <a href="http://stamet_pangsuma.kalbar.bmkg.go.id/" target="_blank">Stasiun Meteorologi Kelas III Pangsuma - Putussibau</a> </li>
+															<li> <a href="https://bmkgpalohsambas.com/" target="_blank">Stasiun Meteorologi Kelas III Paloh - Sambas</a> </li>
+															<li> <a href="#">Stasiun Meteorologi Kelas III Nanga Pinoh - Melawi</a> </li>
+															<li> <a href="https://maritim.kalbar.bmkg.go.id/" target="_blank">Stasiun Meteorologi Kelas IV Maritim Pontianak</a> </li>
+														</ul>
+													</div>								
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>									
+                                    <li class="dropdown mega-menu-item"> <a href="#">Cuaca</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="mega-menu-content">
+                                                <div class="row">
+                                                    <div class="col-md-3">  <!------kolom 1------>
+                                                        <ul>
+                                                            <li class="mega-menu-title">Prakiraan Cuaca</li>  
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-kota-kabupaten/">Prakiraan Cuaca Kota/Kabupaten</a></li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-indonesia/">Prakiraan Cuaca Indonesia</a></li>
+															<!-- <li> <a href="https://kalbar.bmkg.go.id/cuaca-jalur-darat/">Prakiraan Cuaca Jalur Darat</a> </li> -->
+															<!--
+                                                            <li> <a href="https://kalbar.bmkg.go.id/cuaca-berbasis-dampak/">Prakiraan Cuaca Berbasis Dampak</a></li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/cuaca-wisata/">Cuaca Wisata</a> </li> -->
+
+															</br>
+															<li class="mega-menu-title">Prospek Cuaca</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/ikhtisar-cuaca-harian/">Ikhtisar Cuaca harian</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/prospek-cuaca-tiga-harian/">Prospek Cuaca 3 harian</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/prospek-cuaca-mingguan/">Prospek Cuaca Mingguan</a> </li>	
+                                                            <li> <a href="https://kalbar.bmkg.go.id/analisis-dan-prospek-cuaca/">Analisis dan Prospek Cuaca</a> </li> 													
+                                                        </ul>
+                                                    </div>                                                  
+                                                    <div class="col-md-3">  <!------kolom 2------>
+                                                        <ul>
+                                                            <li class="mega-menu-title">Cuaca Maritim</li>
+                                                            <li> <a href="https://maritim.kalbar.bmkg.go.id/wilayah-pelayanan/" target=_blank>Prakiraan Cuaca Wilayah Pelayanan</a> </li>
+                                                            <li> <a href="https://maritim.kalbar.bmkg.go.id/pelabuhan/" target=_blank>Prakiraan Cuaca Pelabuhan</a> </li>
+                                                            <li> <a href="https://maritim.kalbar.bmkg.go.id/angin-dan-gelombang/" target=_blank>Prakiraan Angin dan Gelombang</a> </li>
+                                                            <li> <a href="https://maritim.kalbar.bmkg.go.id/pasut/" target=_blank>Prakiraan Pasang Surut</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/prakiraan-arus-sst-dan-sea-level/">Prakiraan Arus, SST dan Sea Level</a> </li>
+                                                            
+                                                            </br>
+                                                            <li class="mega-menu-title">Pengindraan Jauh</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/citra-satelit/">Citra Satelit</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/citra-radar/">Citra Radar</a> </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+
+
+                                                    <div class="col-md-3">  <!------kolom 3------>
+                                                        <ul>
+                                                            <li class="mega-menu-title">Cuaca Penerbangan</li>
+                                                            <li> <a href="https://rami.bmkg.go.id/siam/" target=_blank>Prakiraan Cuaca Bandara</a> </li>
+                                                            <li> <a href="https://rami.bmkg.go.id/siam/" target=_blank>Informasi Cuaca Aktual Bandara</a> </li>
+															<li> <a href="https://rami.bmkg.go.id/siam/" target=_blank>Layanan Flight Document</a> </li>
+                                                            </br>
+
+
+                                                            <li class="mega-menu-title">Indeks Model Prakiraan</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/potensi-pertumbuhan-awan/">Potensi Pertumbuhan Awan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-angin/">Prakiraan Angin</a> </li>
+                                                            <li> <a href="http://web.meteo.bmkg.go.id/id/model-prediksi-cuaca/nwp-parameter-cuaca/hujan/daily-precipitation/precipitation-daily" target=_blank>Potensi Hujan Harian</a> </li>
+                                                            <li> <a href="http://web.meteo.bmkg.go.id/id/model-prediksi-cuaca/nwp-parameter-cuaca/hujan/precipitation-rate/precipitation-3" target=_blank>Potensi Hujan Per 3 Jam</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/mjo/">MJO</a> </li>
+                                                        </ul>
+                                                    </div>
+
+
+                                                    <div class="col-md-3">   <!------kolom 4------>
+                                                        <ul>
+                                                            <li class="mega-menu-title">Peringatan Cuaca</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/kebakaran-hutan-dan-lahan/">Kebakaran Hutan dan Lahan</a> </li>
+                                                            <!-- <li> <a href="https://kalbar.bmkg.go.id/potensi-banjir-harian/">Potensi Banjir Harian</a> </li> -->
+                                                            <li> <a href="http://tcwc.bmkg.go.id/siklon" target=_blank>Siklon Tropis</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-berbasis-dampak/">Prakiraan Cuaca Berbasis Dampak</a> </li>
+                                                            <li> <a href="https://maritim.kalbar.bmkg.go.id/gelombang-tinggi/" target=_blank>Peringatan Gelombang Tinggi</a> </li>
+
+                                                            </br>
+                                                            <li class="mega-menu-title">Analisis Parameter Cuaca</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/analisis-model/">Analisis Model</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/pengamatan-realtime/">Pengamatan Realtime</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-suhu-muka-laut/">Analisis Suhu Muka Laut</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/pengamatan-indeks-surge/">Pengamatan Indeks Surge</a> </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li> 
+									
+
+
+
+
+                                    <li class="dropdown mega-menu-item"> <a href="#">Iklim</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="mega-menu-content">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                     <ul>
+                                                     <li class="mega-menu-title">Monitoring Iklim</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-hari-tanpa-hujan/">Informasi Hari Tanpa Hujan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-suhu-muka-laut/">Informasi Suhu Muka Laut</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/buletin-iklim/">Buletin Iklim</a> </li>
+                                                            
+                                                        </ul>   
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Analisis Iklim</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/analisis-hujan-bulanan/">Analisis Hujan Bulanan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/analisis-hujan-dasarian/">Analisis Hujan Dasarian</a> </li>
+                                                            <!-- <li> <a href="https://kalbar.bmkg.go.id/dinamika-atmosfir/">Dinamika Atmosfir</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/indeks-presipitasi-terstandarisasi/">Indeks Presipitasi Terstandarisasi</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/neraca-air/">Air Tersedia Bagi Tanaman (ATi)</a> </li> -->
+															<li> <a href="https://www.bmkg.go.id/iklim/dinamika-atmosfir.bmkg" target=_blank>Dinamika Atmosfir</a> </li>
+                                                            <li> <a href="https://www.bmkg.go.id/iklim/indeks-presipitasi-terstandarisasi.bmkg" target=_blank>Indeks Presipitasi Terstandarisasi</a> </li>
+                                                            <li> <a href="https://www.bmkg.go.id/iklim/ketersediaan-air-tanah.bmkg?p=tingkat-ketersediaan-air-bagi-tanaman-juli-2021&tag=&lang=ID" target=_blank>Air Tersedia Bagi Tanaman (ATi)</a> </li>
+                                                           
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Prakiraan Iklim</li>
+                                                            
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-hujan-bulanan/">Prakiraan Hujan Bulanan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-hujan-dasarian/">Prakiraan Hujan Dasarian</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/prakiraan-musim/">Prakiraan Musim</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/potensi-banjir-bulanan/">Potensi Banjir Bulanan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/potensi-banjir-dasarian/">Potensi Banjir Dasarian</a> </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Perubahan Iklim</li>
+                                                            <!-- <li> <a href="https://kalbar.bmkg.go.id/tren-curah-hujan/">Tren Curah Hujan</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/tren-suhu/">Tren Suhu</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/ekstrem-perubahan-iklim/">Ekstrem Perubahan Iklim</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/proyeksi-perubahan-iklim/">Proyeksi Perubahan Iklim</a> </li> -->
+															<li> <a href="https://www.bmkg.go.id/iklim/?p=tren-curah-hujan" target=_blank>Tren Curah Hujan</a> </li>
+                                                            <li> <a href="https://www.bmkg.go.id/iklim/?p=tren-suhu" target=_blank>Tren Suhu</a> </li>
+															<li> <a href="https://www.bmkg.go.id/iklim/perubahan-normal-curah-hujan.bmkg" target=_blank>Perubahan Normal Curah Hujan</a> </li>
+                                                            <li> <a href="https://www.bmkg.go.id/iklim/?p=ekstrem-perubahan-iklim" target=_blank>Ekstrem Perubahan Iklim</a> </li>
+															<li> <a href="https://www.bmkg.go.id/iklim/?p=proyeksi-perubahan-iklim" target=_blank>Proyeksi Perubahan Iklim</a> </li>
+                                                        </ul>
+                                                    </div>
+													
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li> 
+                                    <!---------------------------------batas info iklim ------------------------------->
+                                   
+                                   <li class="dropdown"> <a href="#">Kualitas Udara</a>
+                                        <ul class="dropdown-menu">                                            
+                                            <!-- <li> <a href="https://kalbar.bmkg.go.id/gempa-terkini/">Gempabumi Terkini (M ≥ 5.0)</a> </li> -->
+                                            <li> <a href="https://kalbar.bmkg.go.id/indeks-sinar-ultraviolet/">Indeks Sinar Ultraviolet (UV)</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-gas-rumah-kaca/">Informasi Gas Rumah Kaca</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-konsentrasi-partikulat-pm25/">Informasi Konsentrasi Partikulat PM2.5</a> </li>
+                                            <li> <a href="https://www.bmkg.go.id/kualitas-udara/informasi-kimia-air-hujan.bmkg" target=_blank>Informasi Kimia Air Hujan</a> </li>
+                                                            
+                                        </ul>
+                                    </li>
+
+                                    <!----------------------------batas info kualitas udara------------------------------------->
+									<li class="dropdown mega-menu-item"> <a href="#">Gempabumi</a>
+                                        <ul class="dropdown-menu">                                            
+                                            <li class="mega-menu-content">
+                                                <div class="row"> 
+
+                                                    <div class="col-md-4">
+                                                    <ul> 
+
+                                                    </ul>
+                                                    </div> 
+
+
+                                            <div class="col-md-4">
+                                            <ul>
+                                            <li class="mega-menu-title">Gempabumi</li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/gempabumi-dirasakan/">Gempabumi Dirasakan</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/antisipasi-gempabumi/">Antisipasi Gempabumi</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/skala-intensitas-gempabumi/">Skala Intensitas Gempabumi</a> </li>                                            
+                                            <li> <a href="https://kalbar.bmkg.go.id/skala-mmi/">Skala MMI</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/data-gempabumi-kalimantan-barat/">Data Gempabumi Kalimantan Barat</a> </li>
+                                            <li> <a href="https://kalbar.bmkg.go.id/katalog-gempabumi-signifikan/">katalog Gempabumi Signifikan</a> </li>
+                                            </ul>
+                                            </div>
+
+                                                    
+
+                                    <div class="col-md-4">
+                                    <ul>
+                                        <li class="mega-menu-title">Geofisika Potensial & Tanda Waktu</li>
+
+                                        <li> <a href="https://kalbar.bmkg.go.id/ebook-almanak/">E-book Almanak</a> </li>
+                                        <li> <a href="https://kalbar.bmkg.go.id/ebook-peta-ketinggian-hilal/">E-book Peta Ketinggian Hilal</a> </li>
+                                        <li> <a href="https://kalbar.bmkg.go.id/informasi-hilal-dan-gerhana/">Informasi Hilal dan Gerhana</a> </li>
+                                        <li> <a href="https://kalbar.bmkg.go.id/peta-sambaran-petir/">Peta Sambaran Petir</a> </li>
+                                    </ul>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+									
+
+                                    <!----------------------------------batas info gempabumi---------------------------->
+
+
+
+
+
+                                    <li class="dropdown mega-menu-item"> <a href="#">Info Publik</a>
+                                        <ul class="dropdown-menu">  
+                                            <li class="mega-menu-content">
+                                                <div class="row">										
+													<div class="col-md-2">
+														<ul>
+                                                            <li class="mega-menu-title">Publikasi</li>
+															<li> <a href="https://kalbar.bmkg.go.id/artikel/">Artikel</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/post/berita/">Berita</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/buletin/">Buletin</a> </li>	
+															<li> <a href="https://kalbar.bmkg.go.id/post/kegiatan/">Kegiatan</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/post/siaran-pers/">Siaran Pers</a> </li>
+															<li> <a href="http://puslitbang.bmkg.go.id/jmg/index.php/jmg" target=_blank>Jurnal</a> </li>     
+                                                        </ul>
+													</div>
+													<div class="col-md-4">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Informasi Publik</li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/pejabat-pengelola-informasi-dan-dokumentasi/">Pejabat Pengelola Informasi dan Dokumentasi (PPID)</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-berkala/">Informasi Berkala</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-setiap-saat/">Informasi Setiap Saat</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-serta-merta/">Informasi Serta Merta</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/informasi-yang-dikecualikan/">Informasi yang Dikecualikan</a> </li>
+
+                                                            <li> <a href="https://kalbar.bmkg.go.id/transparansi-kinerja/">Transparansi Kinerja</a> </li>
+                                                            
+
+                                                        </ul>
+													</div>
+													<div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Layanan Publik</li>
+															<li> <a href="https://kalbar.bmkg.go.id/alur-pelayanan-data/">Alur Pelayanan Data</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/kuesioner/formulir-data/">Formulir Pelayanan Jasa</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/tarif-produk/">Tarif Produk</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/maklumat/">Maklumat Pelayanan</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/kuesioner/kepuasan-masyarakat/">Indeks Kepuasan Masyarakat</a> </li>
+															<li> <a href="https://kalbar.bmkg.go.id/kuesioner/persepsi-korupsi/">Indeks Persepsi Korupsi</a> </li>
+                                                            <li> <a href="https://kalbar.bmkg.go.id/laporan-pengaduan/">Laporan Pengaduan Masyarakat</a> </li>
+															<li> <a href="http://lpse.bmkg.go.id/" target=_blank>LPSE</a> </li>
+															
+                                                        </ul>
+														
+													</div>
+													<div class="col-md-3">
+                                                        <ul>
+                                                            <li class="mega-menu-title">Regulasi</li>
+															<li> <a href="http://jdih.bmkg.go.id/index0.php" target=_blank>Jaringan Dokumentasi Informasi Hukum BMKG</a> </li>
+                                                        </ul>
+														
+													</div>
+												</div>
+											</li>
+										</ul>
+                                    </li>
+									                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--END: NAVIGATION-->
+                </div>
+            </div>
+        </header>               <!-- end: Header -->
+
+        <!-- Content -->
+		<!--TEMPATKAN KONTEN DISINI-->
+
+<section id="page-title" class="page-title-classic" >
+	  <!--=== Breadcrumbs ===-->
+    <div class="container" style="Margin-bottom: -50px; Margin-top: -20px;">
+		<div class="page-title">
+			<h1>Prakiraan Cuaca</h1> 
+		</div>
+		 <ul class="pull-right breadcrumb" style="background-color: #F2F2F4">
+			<li>
+				<a href='https://kalbar.bmkg.go.id'>Beranda</a>
+			</li>
+			<li>
+				<a href='#'>Cuaca</a>
+			</li>
+		</ul>
+	</div><!--/breadcrumbs-->
+  <!--=== End Breadcrumbs ===-->
+</section>
+	<!-- section 1 -->
+<section id="page-content" >
+	<div class="container">
+		<!--Grid system -->
+		<div class="grid-system-demo-live">
+			<div class="row">
+							<div class="col-md-8">
+				<h2 class="blog-grid-title-lg text-capitalize">Kota/Kabupaten Provinsi Kalimantan Barat</h2>
+					<div class="tab-v1">
+						<ul class="nav nav-tabs">
+						  <li class="active"><a data-toggle="tab" href="#tab1">
+							Selasa, 12 April 2022							</a></li>
+						  <li><a data-toggle="tab" href="#tab2">
+							Rabu, 13 April 2022							</a></li>
+							
+							
+						</ul>
+						<!-- 
+
+				</div>
+                <div class="col-md-4">
+					<!--Tabs with Posts-->
+    <div class="widget">
+		<div class="widget widget-shop">
+			<div class="headline">
+				<h4 >Prakiraan Cuaca</h4>
+			</div>								
+			<div class="post-thumbnail-list">
+				<div class="post-thumbnail-entry">                                              
+					<div class="post-thumbnail-content">
+						<a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-kota-kabupaten/">Prakiraan Cuaca Kota/Kabupaten</a>
+					</div>
+				</div>
+				<div class="post-thumbnail-entry">                                               
+					<div class="post-thumbnail-content">
+						<a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-indonesia/">Prakiraan Cuaca Indonesia</a>
+					</div>
+				</div>
+								
+			</div><hr>
+		</div>
+    </div>
+    <!--End: Tabs with Posts-->
+
+                    <!--tabel cuaca-->
+    <div class="tab-content">
+						
+        <div class="tab-pane active in" id="cuaca-D0">
+        
+        <div class="row cuaca-head">
+            <div class="col-xs-12 col-sm-12 col-md-2 cuaca-title-center">Kab / Kota</div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="col-xs-12 col-sm-12 col-md-12 cuaca-title-top">Cuaca</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6" align="center">Malam</div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center">Dini Hari</div>
+                                </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Suhu Udara</div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Kelembaban</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-berau" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Berau</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">85 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-barat" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Barat</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Kabut.png" width="50" title="Kabut" alt="Kabut" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 32 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">60 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-kartanegara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Kartanegara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-timur" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Timur</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-paser" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Paser</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 32 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">55 - 90 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-pasir" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Pasir</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-mahakam-ulu" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Mahakam Ulu</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">20 - 28 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-penajam-paser-utara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Penajam Paser Utara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-balikpapan" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Balikpapan</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-bontang" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Bontang</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-samarinda" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Samarinda</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="center"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+                </div> <!--end tab cuacaD0 -->		
+                
+        <div class="tab-pane" id="cuaca-D1">
+        
+        <div class="row cuaca-head">
+            <div class="col-xs-12 col-sm-12 col-md-2 cuaca-title-center">Kab / Kota</div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="col-xs-12 col-sm-12 col-md-12 cuaca-title-top">Cuaca</div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">Pagi</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Siang</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Malam</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Dini Hari</div>
+                                </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Suhu Udara</div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Kelembaban</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-berau" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Berau</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">75 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-barat" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Barat</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-kartanegara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Kartanegara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-timur" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Timur</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Kabut.png" width="50" title="Kabut" alt="Kabut" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-paser" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Paser</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan Tebal.png" width="50" title="Berawan Tebal" alt="Berawan Tebal" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 33 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">60 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-pasir" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Pasir</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-mahakam-ulu" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Mahakam Ulu</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">20 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-penajam-paser-utara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Penajam Paser Utara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 32 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-balikpapan" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Balikpapan</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-bontang" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Bontang</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-samarinda" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Samarinda</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+                </div> <!--end tab cuacaD0 -->		
+                
+        <div class="tab-pane" id="cuaca-D2">
+        
+        <div class="row cuaca-head">
+            <div class="col-xs-12 col-sm-12 col-md-2 cuaca-title-center">Kab / Kota</div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="col-xs-12 col-sm-12 col-md-12 cuaca-title-top">Cuaca</div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">Pagi</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Siang</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Malam</div>
+                <div class="col-xs-3 col-sm-3 col-md-3">Dini Hari</div>
+                                </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Suhu Udara</div>
+            <div class="col-xs-6 col-sm-6 col-md-2 cuaca-title-center">Kelembaban</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-berau" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Berau</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">75 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-barat" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Barat</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-kartanegara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Kartanegara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">75 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kutai-timur" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kutai Timur</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan Tebal.png" width="50" title="Berawan Tebal" alt="Berawan Tebal" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">75 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-paser" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Paser</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 31 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 95 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-pasir" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Pasir</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">80 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-mahakam-ulu" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Mahakam Ulu</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">20 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">65 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-penajam-paser-utara" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Penajam Paser Utara</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">80 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-balikpapan" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Balikpapan</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 30 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">70 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-bontang" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Bontang</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Berawan.png" width="50" title="Berawan" alt="Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Lebat.png" width="50" title="Hujan Lebat" alt="Hujan Lebat" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">24 - 28 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">80 - 100 %</div>
+        </div>
+        
+        <div class="row cuaca-list">
+            <div class="col-xs-12 col-sm-12 col-md-2 area-title"><a href="prakiraan-cuaca-kecamatan-kota-samarinda" data-toggle="info" data-placement="right" title="Klik nama lokasi untuk info selengkapnya">Kota Samarinda</a></div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/siang/Hujan Ringan.png" width="50" title="Hujan Ringan" alt="Hujan Ringan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Cerah Berawan.png" width="50" title="Cerah Berawan" alt="Cerah Berawan" data-toggle="info" /></div>
+                <div class="col-xs-3 col-sm-3 col-md-3"><img src="images/icon/malam/Hujan Sedang disertai Petir.png" width="50" title="Hujan Sedang disertai Petir" alt="Hujan Sedang disertai Petir" data-toggle="info" /></div>
+                            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2 temp-title">23 - 29 &deg;C</div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 rh-title">75 - 100 %</div>
+        </div>
+                </div> <!--end tab cuacaD0 -->		
+        
+    </div> <!--end tab content -->
+</div>
+</div>					</div>
+            </div><!--/.col-md-8-->
+
+                <!--tabel cuaca-->
+
+				    <!--Tabs with Posts-->
+    <div class="widget">
+        <div class="widget widget-shop">
+            <div class="headline">
+                <h4 >Prospek Cuaca</h4>
+            </div>          
+            <div class="post-thumbnail-list">
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/ikhtisar-cuaca-harian/">Ikhtisar Cuaca harian</a>
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/prospek-cuaca-tiga-harian/">Prospek Cuaca 3 harian</a>
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/prospek-cuaca-mingguan/">Prospek Cuaca Mingguan</a>
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/analisis-dan-prospek-cuaca/">Analisis dan Prospek Cuaca</a>
+                    </div>
+                </div>
+            </div><hr>
+        </div>
+    </div>
+    <!--End: Tabs with Posts-->
+
+
+
+    				    <!--Tabs with Posts-->
+    <div class="widget">
+        <div class="widget widget-shop">
+            <div class="headline">
+                <h4 >Peringatan Cuaca</h4>
+            </div>                              
+            <div class="post-thumbnail-list">
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/kebakaran-hutan-dan-lahan/">Kebakaran Hutan dan Lahan</a>
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="http://tcwc.bmkg.go.id/siklon" target=_blank>Siklon Tropis</a>
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://kalbar.bmkg.go.id/prakiraan-cuaca-berbasis-dampak/">Prakiraan Cuaca Berbasis Dampak</a> 
+                    </div>
+                </div>
+                <div class="post-thumbnail-entry">
+                    <div class="post-thumbnail-content">
+                        <a href="https://maritim.kalbar.bmkg.go.id/gelombang-tinggi/" target=_blank>Gelombang Tinggi</a> 
+                    </div>
+                </div>
+            </div><hr>
+        </div>
+    </div>
+    <!--End: Tabs with Posts-->
+
+
+
+    				</div>
+			
+		</div>
+        <!--end Grid system -->        
+	</div>
+</section>
+<!-- end: section 1 -->
+
+<!--AKHIR KONTEN DISINI-->
+        <!-- end: Content -->
+		
+        <!-- Footer -->
+		<footer id="footer" class="footer-dark">
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Footer widget area 1 -->
+                            <div class="widget  widget-contact-us" style="background-image: url('images/world-map-dark.png'); background-position: 50% 20px; background-repeat: no-repeat">
+                                
+								<img src="/images/logo-bmkg-kalbar-light3.gif" alt="logo bmkg kalbar">
+								<br>
+                                <br>
+                                <h7>Stasiun Meteorologi Kelas I Supadio Pontianak</h7>
+                                <ul class="list-icon">
+                                    <li><i class="fa fa-map-marker"></i> Jl. Adi Sucipto Km 17 Bandara Supadio Pontianak, Kec. Sungai Raya, Kab. Kubu Raya, Prov. Kalimantan Barat 78381</li>
+                                    <li><i class="fa fa-phone"></i> 0561-721142 </li>
+                                    <li><i class="fa fa-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=628115711567"> +62811-5711-567 </li>
+                                    <li><i class="fa fa-envelope"></i> <a href="mailto:stamet.supadio@bmkg.go.id"> stamet.supadio@bmkg.go.id</a>
+                                    </li>
+                                </ul>
+                                <!-- Social icons -->
+                                <div class="social-icons social-icons-border float-left m-t-20">
+                                    <ul>
+                                        <li class="social-facebook"><a href="https://www.facebook.com/infobmkgkalbar/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="social-twitter"><a href="https://twitter.com/infobmkgkalbar"><i class="fa fa-twitter" target="_blank"></i></a></li>
+                                        <li class="social-instagram"><a href="https://www.instagram.com/info_bmkg_kalbar/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="social-youtube"><a href="https://www.youtube.com/channel/UCZ195Zr_h0aaKPa4haheF_g/videos" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                        
+
+                                    </ul>
+                                </div>
+                                <!-- end: Social icons -->
+                            </div>
+                            <!-- end: Footer widget area 1 -->
+                        </div>
+                        <div class="col-md-2">
+                            <!-- Footer widget area 2 -->
+                            <div class="widget">
+                                <h4>Link BMKG</h4>
+                                <ul class="list-icon list-icon-arrow">
+                                    <li><a href="http://web.meteo.bmkg.go.id/" target="_blank">Informasi Cuaca</a></li>
+									<li><a href="http://maritim.bmkg.go.id/" target="_blank">Cuaca Maritim</a></li>
+									<li><a href="http://aviation.bmkg.go.id/" target="_blank">Cuaca Penerbangan</a></li>
+									<li><a href="http://iklim.bmkg.go.id/" target="_blank">Informasi Iklim</a></li>
+                                    <li><a href="http://inatews.bmkg.go.id/" target="_blank">InaTEWS (Indonesia Tsunami Early Warning System)</a></li>
+                                    <li><a href="http://dataonline.bmkg.go.id/" target="_blank">Data Online BMKG</a></li>
+                                    <li><a href="https://mail.bmkg.go.id/" target="_blank">Email BMKG</a></li>
+                                </ul>
+                            </div>
+                            <!-- end: Footer widget area 2 -->
+                        </div>
+                        <div class="col-md-2">
+                            <!-- Footer widget area 3 -->
+                            <div class="widget">
+                                <ul class="list-icon list-icon-arrow">
+									</br>
+									<p></p>
+									<li><a href="http://hukum.bmkg.go.id/" target="_blank">JDIH BMKG</a></li>
+                                    <li><a href="http://inspektorat.bmkg.go.id/" target="_blank">Inspektorat BMKG</a></li>
+                                    <li><a href="http://seleksicpns.sestama.bmkg.go.id/auth/login" target="_blank">SKI / SKP BMKG</a></li>
+                                    <li><a href="http://pusdiklat.bmkg.go.id/" target="_blank">Pusdiklat BMKG</a></li>
+                                    <li><a href="http://puslitbang.bmkg.go.id/" target="_blank">Puslitbang BMKG</a></li>
+                                    <li><a href="https://ptsp.bmkg.go.id/" target="_blank">PTSP BMKG Pusat</a></li>
+                                    <li><a href="https://stmkg.ac.id/" target="_blank">STMKG</a></li>
+                                    <!---<li><a href="http://balai2.bmkg.go.id/" target="_blank">Balai Wilayah II Ciputat</a></li> -->
+
+                                    </br>
+
+                                      <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4643090,4,3000,112,48,00011010']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4643090&101" alt="counter create hit" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+                                </ul>
+                            </div>
+                            <!-- end: Footer widget area 3 -->
+                        </div>
+                        <div class="col-md-4">
+									
+                                   
+                                    <div class="headline"><h4 >Video Pembangunan Zona Integritas</h4></div>
+									<p></p>
+									
+                                    <!-------------- di sini rencananya untuk menaruh embed youtube video zona integritas ------------>
+                                    <iframe width="100%" height="203" src="https://www.youtube.com/embed/O3k9HBHj97c?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+                            </div>
+
+                            
+                            <!-- Footer widget area 4 
+							<div class="carousel" data-arrows="false" data-dots="false" data-margin="0" data-items="1" data-loop="true" data-autoplay="true" data-autoplay-timeout="3000">	
+								<div>
+									<a href="http://lpse.bmkg.go.id/eproc4" target="_blank"><img src="http://www.bmkg.go.id/asset/img/banner/lpse.jpg"></a>
+								</div>
+								<div>
+									<a href="http://dataonline.bmkg.go.id" target="_blank" ><img src="http://www.bmkg.go.id/asset/img/banner/banner_data_online.jpg"></a>
+								</div>
+								<div>
+									<a href="http://puslitbang.bmkg.go.id/jmg" target="_blank" ><img src="http://www.bmkg.go.id/asset/img/banner/banner-journalMG.jpg"></a>
+								</div>
+								<div>
+									<a href="http://inatews.bmkg.go.id/new/query_gmpqc.php" target="_blank" ><img src="http://www.bmkg.go.id/asset/img/banner/dataGempa.jpg"></a>
+								</div>
+							</div>-->
+                            
+                            <!-- end: Footer widget area 4 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="copyright-text text-center">&copy; 2022 BMKG Kalimantan Barat. All Rights Reserved. <a href=" https://kalbar.bmkg.go.id " target="_blank">Tim IT BMKG</a>                    </div>
+                </div>
+            </div>
+        </footer>
+                <!-- end: Footer -->
+
+    </div>
+    <!-- end: Wrapper -->
+
+    <!-- Go to top button -->
+    <a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>
+
+	 <!--Plugins-->
+	 <script src="https://kalbar.bmkg.go.id/js/jquery.js"></script>
+	 <script src="https://kalbar.bmkg.go.id/js/plugins.js"></script>
+
+	<!--Template functions-->
+	 <script src="https://kalbar.bmkg.go.id/js/functions.js"></script> 
+	
+	<!--Script Tambahan-->
+	<!--TEMPATKAN SCRIPT TAMBAHAN FOOTER DISINI-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- AKHIR BAGIAN KONTEN, JANGAN LAKUKAN PERUBAHAN SETELAH BARIS INI -->	
+ 
+</body>
+<!-- end: Body -->
+
+</html>
+
+
+
